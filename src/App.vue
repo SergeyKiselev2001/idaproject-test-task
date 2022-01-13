@@ -1,6 +1,6 @@
 <template>
   <div class="content">
-    <Header class="header"></Header>
+    <Header></Header>
     <ProductAdding
       class="productAdding" 
       name="name"
@@ -11,7 +11,6 @@
       @event="newCard"
     />
     <Products 
-      class="products"
       :cards="cards"
     />
   </div>
@@ -56,38 +55,20 @@ export default {
 }
 </script>
 
-<style>
+<style lang="scss" scoped>
 
+
+
+$main_color: blue;
 
 .content {
   display: flex;
   flex-wrap: wrap;
-  width: 100%;
+  width: 1440px;
+  margin: 0 auto;
   
 }
 
-.header {
-  width: 100%;
-  border: 1px solid red;
-  height: 100px;
-  box-sizing: border-box;
-}
-
-.productAdding{
-  width: 30%;
-  border: 1px solid red;
-  box-sizing: border-box;
-
-  height: 500px;
-}
-
-
-.products {
-  width: 70%;
-  border: 1px solid red;
-  box-sizing: border-box;
-  height: 500px;
-}
 
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;

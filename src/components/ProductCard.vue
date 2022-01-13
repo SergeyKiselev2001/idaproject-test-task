@@ -29,7 +29,7 @@ export default {
 
 
 
-<style scoped>
+<style lang="scss" scoped>
 
 .productCard {
   height: 100px;
