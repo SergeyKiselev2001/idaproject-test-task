@@ -4,7 +4,7 @@
 
 <template>
   <div class="productCardWrapper">
-    <div class="delete" @click="deleting()">
+    <div class="delete" @click="deleting(id)">
       <img src="./../assets/delete.svg" alt="delete">
     </div>
     <div class="productCard">
@@ -13,7 +13,7 @@
         <br>
         <span class="description">{{description}}</span>
         <br>
-        <span class="price">{{price}}</span>
+        <span class="price">{{price_normalized}}</span>
     </div>
   </div>
 </template>
@@ -23,14 +23,29 @@
 export default {
   name: 'ProductCard',
   props: {
+    id: Number,
     name: String,
     description: String,
     link: String,
     price: String
   },
+
+  computed: {
+    price_normalized:function(){
+      return this.price
+        .replace(/[^+\d]/g, '')
+        .split("")
+        .reverse()
+        .map((el,id)=>{
+          if (id%3==0){return el + ' '} return el})
+        .reverse()
+        .join("") + ' руб.';
+    }
+  },
+
   methods: {
-    deleting: function(){
-      alert('dada');
+    deleting: function(id){
+      this.$emit('deleteCard', id);
     }
   }
 }
@@ -43,9 +58,7 @@ export default {
 .productCardWrapper{
 
   cursor: pointer !important;
-
- 
-
+  animation: productAnimation .8s ease;
   position: relative;
 
   .delete {
@@ -70,6 +83,19 @@ export default {
       visibility: visible;
   }
 
+}
+
+@keyframes productAnimation{
+  0%{
+    margin-top: -10px;
+    opacity: 0;
+
+  }
+  100%{
+    margin-top: 0px;
+    opacity: 1;
+
+  }
 }
 
 .productCard {

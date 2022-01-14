@@ -5,12 +5,15 @@
     <div class="products">
         <ProductCard
           v-for="card in cards" 
-          v-bind:key="card.name"
+          v-bind:key="card.id"
 
+          :id="card.id"
           :name="card.name"
           :description="card.description"
           :link="card.link"
           :price="card.price"
+
+          @deleteCard="deleteCard"
     
         />
     </div>
@@ -26,6 +29,12 @@ export default {
     ProductCard
   },
   props: ["cards"],
+
+  methods: {
+    deleteCard: function(id){
+      this.$emit('delete', id);
+    }
+  }
 
 }
 </script>

@@ -97,9 +97,15 @@ export default {
     }
   },
 
+  // computed: {
+  //   price_normalized: function(){
+  //     return this.price.split("").reverse();
+  //   }
+  // },
+
   methods: {
     addCard: function(){
-      this.$emit("event", {
+      this.$emit("add", {
         name: this.name,
         description: this.description,
         link: this.link,
@@ -210,11 +216,8 @@ export default {
   }
 }
 
-  
-
   .red_input {
     border: 1px solid #FF8484 !important;
-    
   }
 
   .labelName {
@@ -273,9 +276,6 @@ export default {
     padding-bottom: 3px;
 
     color: #B4B4B4;
-
-
-    
   
   }
 
