@@ -4,7 +4,6 @@
 <template>
     <div class="products">
         <ProductCard
-          class="product"  
           v-for="card in cards" 
           v-bind:key="card.name"
 
@@ -12,7 +11,7 @@
           :description="card.description"
           :link="card.link"
           :price="card.price"
-     
+    
         />
     </div>
 </template>
@@ -38,7 +37,7 @@ export default {
 .products {
 
   width: 1028px;
-  padding-top: 11px;
+  padding-top: 13px;
   display: grid;
 
 
@@ -51,19 +50,6 @@ export default {
 
 
 
-  .product {
-
-    width: 332px;
-    height: 423px;
-
-    margin-right: 16px;
-
-    background: #FFFEFB;
-    box-shadow: 0px 20px 30px rgba(0, 0, 0, 0.04), 0px 6px 10px rgba(0, 0, 0, 0.02);
-    border-radius: 4px;
-    margin-bottom: 18px;
-   
-  }
 }
 
 </style>

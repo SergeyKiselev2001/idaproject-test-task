@@ -28,20 +28,21 @@ export default {
 
   data(){
     return {
-      smth: "LOOOOOOOOOOOOOOOL",
 
-      cards : [{
-        name: "Моё имя",
-        description: "Описание товара 1",
-        link: "1",
-        price: "1250"
+      cards : [
+      {
+        name: "Наименование товара",
+        description: "Довольно-таки интересное описание товара в несколько строк. Довольно-таки интересное описание товара в несколько строк",
+        link: "https://i.ibb.co/N9rvSD5/Rectangle-31.png",
+        price: "10 000 руб."
       },
       {
         name: "Моё имя 2",
         description: "1",
-        link: "1",
+        link: "https://i.ibb.co/N9rvSD5/Rectangle-31.png",
         price: "500"
-      }],
+      }
+      ],
     }
   },
 
@@ -59,8 +60,6 @@ export default {
 
 
 
-$main_color: blue;
-
 .content {
   display: flex;
   flex-wrap: wrap;
@@ -77,5 +76,7 @@ $main_color: blue;
   text-align: center;
   color: #2c3e50;
   margin-top: 60px;
+
+  
 }
 </style>
