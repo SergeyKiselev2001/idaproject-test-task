@@ -3,6 +3,10 @@
 
 
 <template>
+  <div class="productCardWrapper">
+    <div class="delete" @click="deleting()">
+      <img src="./../assets/delete.svg" alt="delete">
+    </div>
     <div class="productCard">
       <img :src='link' alt="product-img">
         <span class="name">{{name}}</span>
@@ -11,6 +15,7 @@
         <br>
         <span class="price">{{price}}</span>
     </div>
+  </div>
 </template>
 
 
@@ -22,6 +27,11 @@ export default {
     description: String,
     link: String,
     price: String
+  },
+  methods: {
+    deleting: function(){
+      alert('dada');
+    }
   }
 }
 </script>
@@ -30,6 +40,37 @@ export default {
 
 <style lang="scss" scoped>
 
+.productCardWrapper{
+
+  cursor: pointer !important;
+
+ 
+
+  position: relative;
+
+  .delete {
+    position: absolute;
+    visibility: hidden;
+    z-index: 20;
+    top: -8px;
+    right: 8px;
+    width: 32px;
+    height: 32px;
+    background: #FF8484;
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
+  }
+
+  &:hover .delete {
+      visibility: visible;
+  }
+
+}
 
 .productCard {
   width: 332px;
@@ -46,7 +87,10 @@ export default {
 
   &:hover {
     box-shadow: 0px 2px 8px 3px rgba(0, 0, 0, 0.24);
+
   }
+
+
 
 
   span {
@@ -57,8 +101,11 @@ export default {
     display: block;
     width: 332px;
     height: 200px;
-    background: gray;
+    background: rgba(0,0,0,0.1);
     margin-bottom: 16px;
+    object-fit: cover;
+    border-radius: 4px 4px 0px 0px;
+    cursor: pointer;
   }
 
   .name {

@@ -3,11 +3,6 @@
     <Header></Header>
     <ProductAdding
       class="productAdding" 
-      name="name"
-      description="description"
-      link="link"
-      price="price"
-
       @event="newCard"
     />
     <Products 
@@ -37,11 +32,11 @@ export default {
         price: "10 000 руб."
       },
       {
-        name: "Моё имя 2",
-        description: "1",
+        name: "Наименование товара",
+        description: "Довольно-таки интересное описание товара в несколько строк. Довольно-таки интересное описание товара в несколько строк",
         link: "https://i.ibb.co/N9rvSD5/Rectangle-31.png",
-        price: "500"
-      }
+        price: "10 000 руб."
+      },
       ],
     }
   },
