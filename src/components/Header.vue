@@ -40,16 +40,13 @@ export default {
 </script>
 
 
-
 <style lang="scss" scoped>
 
 .header {
   
   width: 100%;
   height: 70px;
-
   position: relative;
-
 
 
   .title {
@@ -88,6 +85,28 @@ export default {
 
 }
 
+
+@media (max-width: 1500px) {
+  .header {
+    padding-left: 160px;
+
+    .select {
+      right: 10px;
+    }
+  }
+
+  
+}
+
+
+@media (max-width: 1260px) {
+  .header {
+    padding-left: 40px;
+    .select {
+      right: 56px;
+    }
+  }
+}
 
 
 </style>
