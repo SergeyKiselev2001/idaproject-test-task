@@ -122,6 +122,7 @@ export default {
   width: 1440px;
   margin: 0 auto;
   justify-content: center;
+
   
 }
 
@@ -137,6 +138,13 @@ export default {
 @media (max-width: 1500px) {
   .content {
     width: 1228px
+  }
+}
+
+
+@media (max-width: 1260px) {
+  .content {
+    width: 800px
   }
 }
 </style>

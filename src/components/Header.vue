@@ -51,9 +51,10 @@ export default {
   position: relative;
 
 
+
   .title {
     display: inline-block;
-    margin-top: 33px;
+    margin-top: 12px;
     letter-spacing: 0.028em;
     margin-left: 31px;
     font-family: 'Source Sans Pro';

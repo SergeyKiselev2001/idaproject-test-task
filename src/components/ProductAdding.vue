@@ -122,16 +122,17 @@ export default {
 <style lang="scss" scoped>
 
 .productAdding {
+
   width: 332px;
   height: 440px;
   background: #FFFEFB;
   box-shadow: 0px 20px 30px rgba(0, 0, 0, 0.04), 0px 6px 10px rgba(0, 0, 0, 0.02);
   border-radius: 4px;
-  margin-left: 32px;
-  margin-top: 13px;
+  margin-left: 3px;
+  margin-top: 12px;
 
-  padding-top: 20px;
-  padding-left: 24px;
+  padding-top: 21px;
+  padding-left: 22px;
 
   margin-right: 16px;
 

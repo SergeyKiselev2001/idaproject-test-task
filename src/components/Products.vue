@@ -45,10 +45,9 @@ export default {
 
 .products {
 
-  width: 1028px;
+  width: 1030px;
   padding-top: 13px;
   display: grid;
-
 
   grid-auto-flow: row;
   grid-template-columns: repeat(3, 1fr);
@@ -61,7 +60,14 @@ export default {
 @media (max-width: 1500px) {
   .products {
     grid-template-columns: repeat(2, 1fr);
-    width: 728px
+    width: 500px
+  }
+}
+
+@media (max-width: 1260px) {
+  .products {
+    grid-template-columns: repeat(1, 1fr);
+    width: 328px
   }
 }
 
