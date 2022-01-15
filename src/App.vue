@@ -6,7 +6,7 @@
       @add="newCard"
     />
     <Products 
-      :cards="cards"
+      :cards="cardsToShow"
       @delete="deleteCard"
     />
   </div>
@@ -24,6 +24,10 @@ export default {
 
   data(){
     return {
+
+      cardsToShow : [], // Список карточек товаров в отсортированном виде
+
+      filteringOption: 'По умолчанию',
 
       cards : [
       {
@@ -53,11 +57,13 @@ export default {
 
 
   mounted: function(){
-    //this.cards = JSON.parse(localStorage.cards);
+    if (localStorage.cards) this.cards = JSON.parse(localStorage.cards);
+    this.cardsToShow = this.cards;
   },
 
   updated: function(){
     localStorage.cards = JSON.stringify(this.cards);
+    
   },
 
   methods: {
@@ -66,26 +72,41 @@ export default {
       // id = последний id в списке товаров c увеличенным id на 1, если товаров нет, тогда id=0
       obj.id = ((this.cards[this.cards?.length-1]?.id) + 1) || 0;
       this.cards = [...this.cards, obj];
+      this.filtering(this.filteringOption);
     },
 
     deleteCard: function(id){
       this.cards = [...this.cards.filter(el=>el.id!=id)];
+      this.filtering(this.filteringOption);
     },
 
     filtering: function(option){
+
+      this.filteringOption = option;
+
       switch (option){
         case "По умолчанию":
-          
+          this.cardsToShow = [...this.cards];
           break;
+
         case "По цене min":
-          this.cards = this.cards.sort(function(a, b) {
+          this.cardsToShow = [...this.cards].sort(function(a, b) {
               return a.price.replace(/[^+\d]/g, '') - b.price.replace(/[^+\d]/g, '');
           });
           break;
+
         case "По цене max":
-          this.cards = this.cards.sort(function(a, b) {
+          this.cardsToShow = [...this.cards].sort(function(a, b) {
               return a.price.replace(/[^+\d]/g, '') - b.price.replace(/[^+\d]/g, '');
           }).reverse();
+          break;
+
+        case "По наименованию":
+          this.cardsToShow = [...this.cards].sort(function(a, b) {
+              if(a.name.toLowerCase() < b.name.toLowerCase()) { return -1; }
+              if(a.name.toLowerCase() > b.name.toLowerCase()) { return 1; }
+              return 0;
+          });
           break;
       }
     }
@@ -100,6 +121,7 @@ export default {
   flex-wrap: wrap;
   width: 1440px;
   margin: 0 auto;
+  justify-content: center;
   
 }
 
@@ -110,5 +132,11 @@ export default {
   text-align: center;
   color: #2c3e50;
   margin-top: 60px;
+}
+
+@media (max-width: 1500px) {
+  .content {
+    width: 1228px
+  }
 }
 </style>

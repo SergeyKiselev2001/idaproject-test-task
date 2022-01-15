@@ -55,10 +55,14 @@ export default {
 
   // flex-direction: row;
   // flex-wrap: wrap;
+}
 
 
-
-
+@media (max-width: 1500px) {
+  .products {
+    grid-template-columns: repeat(2, 1fr);
+    width: 728px
+  }
 }
 
 </style>

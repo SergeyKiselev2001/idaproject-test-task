@@ -44,13 +44,14 @@
           <label class="labelPrice">Цена товара</label>
           <br/>
           <div class="inputContainer">
-            <div :class="{inputWrapper:priceTouched && !price}">
+            <div :class="{inputWrapper:priceTouched && price<1}">
               <input 
                   @blur="priceTouched=true" 
                   class="inputPrice"
-                  v-bind:class="{red_input: priceTouched && !price}"
+                  v-bind:class="{red_input: priceTouched && price<1}"
                   spellcheck="false" 
                   v-model="price" 
+                  type="number"
                   placeholder="Введите цену" />
             </div>
           </div>
@@ -87,13 +88,13 @@ export default {
 
   watch: {
     name: function(){
-      (this.name && this.link && this.price) ? this.isGreen = true : this.isGreen = false;
+      (this.name && this.link && this.price>0) ? this.isGreen = true : this.isGreen = false;
     },
     link: function(){
-      (this.name && this.link && this.price) ? this.isGreen = true : this.isGreen = false;
+      (this.name && this.link && this.price>0) ? this.isGreen = true : this.isGreen = false;
     },
     price: function(){
-      (this.name && this.link && this.price) ? this.isGreen = true : this.isGreen = false;
+      (this.name && this.link && this.price>0) ? this.isGreen = true : this.isGreen = false;
     }
   },
 
@@ -109,7 +110,7 @@ export default {
         name: this.name,
         description: this.description,
         link: this.link,
-        price: this.price,
+        price: String(this.price),
       } );
     }
   }
