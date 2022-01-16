@@ -1,3 +1,7 @@
+
+На результат можно посмотреть тут-> https://sergeykiselev2001.github.io/idaproject-test-task/
+```
+
 # ida-project
 
 ## Project setup
