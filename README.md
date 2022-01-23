@@ -2,6 +2,8 @@
 На результат можно посмотреть тут-> https://sergeykiselev2001.github.io/idaproject-test-task/
 
 
+текст тестового задания -> https://frontend-test.idalite.com/ 
+
 
 ## Project setup
 ```
